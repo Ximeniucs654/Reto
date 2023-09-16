@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es" manifest="reto-quantum.manifest">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+
+<body>
+
+<!-- Write your comments here -->
+<p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: x-large; text-align:center "> Representaci&oacute;n del brazo del robot</p>
+<p style="font-family: Georgia, 'Times New Roman', Times, serif; text-align: center;">(Cada bot&oacute;n da una vista diferente de la gr&aacute;fica)</p>
+
+<!-- Estos son los botones, cada uno hace llamado a una funcion que muestra una grafica diferente -->
+<!-- por eso parece que se reincia la grafica, lo ideal seria que se modificara un valor y no generar de nuevo toda la grafica-->
+<button style="background-color: #eebcde; border-color: #eebcde; border-radius: 15px; width: 90px; height: 40px; font-size: medium;font-family: Georgia, 'Times New Roman', Times, serif" class="myBtn"  onclick="grafica()">Posici&oacute;n 1 </button>
+<button style= "background-color: cornflowerblue; border-color: cornflowerblue; border-radius: 15px; width: 95px; height: 40px; font-size: medium;" class="myBtn1"  onclick="grafica1()">Posici&oacute;n 2</button>
+<p id="demo"></p>
+
+<!-- Con el valor en "max-width" se asigna el tamaño de la grafíca en pantalla -->
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+
+<!--  Sección donde se generan las graficas cada que se da clic a un boton-->
+<!-- Funcion "grafica" del boton Posision 1 -->
+<script>
+
+<!--F uncion "grafica" del boton Posision 1 -->
+
+<!--Estos son los valores que se muestran en la grafica en coordenadas xValues para x y yValues para Y -->
+<!-- No hay valores suficientes en y, solo se muestran los puntos que tienen las coordenadas completas X y Y -->
+
+function grafica() {
+
+new Chart("myChart", {
+  type: "line",
+  data: {
+  labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    datasets: [{
+    data: [ null, null, 9, 11, 14,14],
+      fill: false,
+      lineTension: 0,
+      backgroundColor: "#eebcde ",
+                        borderColor: "#eebcde",
+                        borderCapStyle: 'butt',
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      yAxes: [{ticks: {min: 6, max:16}}],
+    }
+  }
+});
+}
+
+<!-- Esto es la funcion "grafica1" del boton Posision 2 -->
+
+function grafica1() {
+const xValues = [50,55,60,65,70,75,80];
+const yValues = [11,15,8];
+
+new Chart("myChart", {
+  type: "line",
+  data: {
+  labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    datasets: [{
+    data: [ null, null, 9, 11, 11,11],
+    pointRadius: 4,
+      fill: false,
+      lineTension: 0,
+      backgroundColor: "rgba(0,0,255,1.0)",
+      borderColor: "rgba(0,0,255,0.1)",
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      yAxes: [{ticks: {min: 6, max:16}}],
+    }
+  },
+});
+}
+</script>
+</body>
+</html>
